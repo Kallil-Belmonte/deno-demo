@@ -1,4 +1,4 @@
-# Mysterity API
+# Deno demo
 
 ## 📑 Summary
 

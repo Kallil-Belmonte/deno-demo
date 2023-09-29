@@ -1,5 +1,9 @@
-export type Object = {
+export type ObjectType = {
   [key: string]: any;
+};
+
+export type Structure<Type> = {
+  [K in keyof Type]: string;
 };
 
 export type IdParam = {
@@ -10,10 +14,6 @@ export type IdsParam = {
   ids: string[];
 };
 
-export type UserIdParam = {
-  userId: string;
-};
-
-export type Error = {
-  message: string;
+export type RequestError = {
+  messages: string[];
 };

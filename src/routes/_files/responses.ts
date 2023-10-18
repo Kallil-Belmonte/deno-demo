@@ -1,17 +1,30 @@
+import type { RequestError } from '@/shared/files/types.ts';
+
 /**
  * @see HttpResponseStatusCodes {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status}
  */
 
 const { stringify } = JSON;
 
-export const success = <Data>(data: Data) =>
-  new Response(stringify(data), {
+const HEADERS = { 'Content-Type': 'application/json' };
+
+export const success = <RequestResponse>(
+  response: RequestResponse,
+  headers: HeadersInit = HEADERS,
+) =>
+  new Response(stringify(response), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' },
+    headers,
   });
 
-export const badRequest = <Data>(data: Data) =>
-  new Response(stringify(data), {
+export const badRequest = (response: RequestError, headers: HeadersInit = HEADERS) =>
+  new Response(stringify(response), {
     status: 400,
-    headers: { 'Content-Type': 'application/json' },
+    headers,
+  });
+
+export const unauthorized = (response: RequestError, headers: HeadersInit = HEADERS) =>
+  new Response(stringify(response), {
+    status: 401,
+    headers,
   });

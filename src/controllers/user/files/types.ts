@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongo';
+
 import type { IdParam } from '@/shared/files/types.ts';
 
 export type Gender =
@@ -44,7 +46,10 @@ export type GetUsersParams = {
 };
 
 export type User = {
-  _id: string;
+  _id: ObjectId;
+  auth: {
+    token: string;
+  };
   personalData: {
     photo: string;
     firstName: string;

@@ -12,11 +12,7 @@ const API_KEYS: Parameters<typeof getAuthTokenKey>[0][] = ['DEV', 'USER'];
  * @description Checks if the auth token is valid.
  */
 
-const isValidAuthToken = async (headers: Headers) => {
-  const authHeader = headers.get('Authorization');
-  if (!authHeader?.startsWith('Bearer ')) return false;
-
-  const authToken = authHeader.replace('Bearer ', '');
+const isValidAuthToken = async (authToken: string) => {
   let valid = false;
 
   for (const apiKey of API_KEYS) {
@@ -25,7 +21,8 @@ const isValidAuthToken = async (headers: Headers) => {
       const { sub = '' } = await verify(authToken, key);
 
       // Dev
-      if (sub === 'dev') {
+      // Analytics
+      if (sub === 'dev' || sub === 'analytics') {
         valid = true;
         break;
       }

@@ -34,7 +34,7 @@ const isValidAuthToken = async (headers: Headers) => {
       if (isValidObjectId(sub)) {
         const user = await usersCollection.findOne(
           { _id: new ObjectId(sub) },
-          { projection: { 'auth.token': 1 } },
+          { projection: { auth: 1 } },
         );
         if (!user) break;
 

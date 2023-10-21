@@ -7,11 +7,11 @@ import userEndpoints from './user/endpoints.ts';
 import user from './user/mod.ts';
 
 const router = async (request: Request) => {
-  const { headers, url } = request;
+  const { url } = request;
   const { pathname } = new URL(url);
 
   // Validate headers auth token
-  const response = await validateHeadersAuthToken(headers);
+  const response = await validateHeadersAuthToken(request);
   if (response) return response;
 
   if (accountEndpoints.includes(pathname)) return account(request);

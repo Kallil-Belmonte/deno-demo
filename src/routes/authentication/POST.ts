@@ -1,6 +1,6 @@
 import type { Endpoints } from '@/routes/_files/types.ts';
-import { login, resetPassword } from '@/controllers/mod.ts';
-import { loginUrl, resetPasswordUrl } from './endpoints.ts';
+import { login, forgotPassword, resetPassword } from '@/controllers/mod.ts';
+import { loginUrl, forgotPasswordUrl, resetPasswordUrl } from './endpoints.ts';
 
 const POST = (request: Request) => {
   const { url } = request;
@@ -8,6 +8,7 @@ const POST = (request: Request) => {
 
   const endpoints: Endpoints = {
     [loginUrl]: login,
+    [forgotPasswordUrl]: forgotPassword,
     [resetPasswordUrl]: resetPassword,
   };
 

@@ -1,5 +1,13 @@
+import { accountUrl } from '@/routes/account/endpoints.ts';
+import {
+  loginUrl,
+  forgotPasswordUrl,
+  resetPasswordUrl,
+} from '@/routes/authentication/endpoints.ts';
 import { unauthorized, forbidden } from '@/routes/_files/responses.ts';
 import isValidAuthToken from './isValidAuthToken.ts';
+
+const urlsWithoutAuthToken = [accountUrl, loginUrl, forgotPasswordUrl, resetPasswordUrl];
 
 /**
  * @function validateHeadersAuthToken
@@ -7,7 +15,12 @@ import isValidAuthToken from './isValidAuthToken.ts';
  * @param { Headers } headers - Headers.
  */
 
-const validateHeadersAuthToken = async (headers: Headers) => {
+const validateHeadersAuthToken = async (request: Request) => {
+  const { headers, method, url } = request;
+  const { pathname } = new URL(url);
+
+  if (method === 'POST' && urlsWithoutAuthToken.includes(pathname)) return null;
+
   const authHeader = headers.get('Authorization');
   if (!authHeader?.startsWith('Bearer '))
     return unauthorized({ messages: ['Authentication token is required.'] });

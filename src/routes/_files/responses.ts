@@ -28,3 +28,9 @@ export const unauthorized = (response: RequestError, headers: HeadersInit = HEAD
     status: 401,
     headers,
   });
+
+export const forbidden = (response: RequestError, headers: HeadersInit = HEADERS) =>
+  new Response(stringify(response), {
+    status: 403,
+    headers,
+  });

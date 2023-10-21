@@ -1,4 +1,4 @@
-import { validateHeadersAuthToken } from '@/shared/helpers/mod.ts';
+import { validateAuthTokenFromHeaders } from '@/shared/helpers/mod.ts';
 import accountEndpoints from './account/endpoints.ts';
 import account from './account/mod.ts';
 import authenticationEndpoints from './authentication/endpoints.ts';
@@ -10,8 +10,8 @@ const router = async (request: Request) => {
   const { url } = request;
   const { pathname } = new URL(url);
 
-  // Validate headers auth token
-  const response = await validateHeadersAuthToken(request);
+  // Validate auth token from headers
+  const response = await validateAuthTokenFromHeaders(request);
   if (response) return response;
 
   if (accountEndpoints.includes(pathname)) return account(request);

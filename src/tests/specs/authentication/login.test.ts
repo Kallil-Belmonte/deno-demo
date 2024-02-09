@@ -4,6 +4,7 @@ import { decode } from 'djwt';
 import type { UserToLogin, LoggedUser } from '@/controllers/authentication/files/types.ts';
 import { request, validateBody, isArray } from '@/shared/helpers/mod.ts';
 import { loginUrl } from '@/routes/authentication/endpoints.ts';
+import { getCollection } from '@/database/mod.ts';
 
 const { stringify } = JSON;
 
@@ -46,13 +47,17 @@ const login = (body: UserToLogin): Promise<LoggedUser | null> =>
 
 Deno.test(loginUrl, async () => {
   const user = await login(payload);
-  if (!user) return;
 
   // Assert response
   const response = validateBody(stringify(user), loggedUserSchema);
   assertEquals(response, undefined);
 
   // Assert auth token
-  const decodedToken = decode(user.auth.token);
+  const decodedToken = decode(user?.auth.token || '');
   assert(isArray(decodedToken));
+
+  // Assert database
+  const usersCollection = getCollection('users', 'dev');
+  const databaseUser = await usersCollection.findOne({ 'account.email': payload.email });
+  assertEquals(databaseUser?.auth.token, user?.auth.token);
 });

@@ -1,4 +1,5 @@
 import { validateAuthTokenFromHeaders } from '@/shared/helpers/mod.ts';
+import { success } from '@/routes/_files/responses.ts';
 import accountEndpoints from './account/endpoints.ts';
 import account from './account/mod.ts';
 import authenticationEndpoints from './authentication/endpoints.ts';
@@ -7,8 +8,11 @@ import userEndpoints from './user/endpoints.ts';
 import user from './user/mod.ts';
 
 const router = async (request: Request) => {
-  const { url } = request;
+  const { method, url } = request;
   const { pathname } = new URL(url);
+
+  // Preflight request
+  if (method === 'OPTIONS') return success(null);
 
   // Validate auth token from headers
   const response = await validateAuthTokenFromHeaders(request);

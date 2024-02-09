@@ -14,6 +14,14 @@ export type IdsParam = {
   ids: string[];
 };
 
+export type DataItem<Title = string> = {
+  _id: string;
+  title: Title;
+  quantity: number;
+};
+
+export type CollectionDataItem = Pick<DataItem, '_id' | 'title'>;
+
 export type RequestError = {
   messages: string[];
 };

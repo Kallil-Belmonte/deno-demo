@@ -2,7 +2,7 @@ export type ObjectType = {
   [key: string]: any;
 };
 
-export type Structure<Type> = {
+export type Schema<Type = ObjectType> = {
   [K in keyof Type]: string;
 };
 

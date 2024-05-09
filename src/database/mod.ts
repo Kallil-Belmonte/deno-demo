@@ -1,7 +1,7 @@
 import { MongoClient, Collection } from 'mongo';
 
 import type { CollectionDataItem } from '@/shared/files/types.ts';
-import type { User } from '@/controllers/user/files/types.ts';
+import type { FullUser } from '@/controllers/user/files/types.ts';
 
 export type Environment = 'dev' | 'prod' | null;
 
@@ -12,7 +12,7 @@ type CollectionReturn<T> = T extends 'genders'
   : T extends 'sexual-orientations'
   ? Collection<CollectionDataItem>
   : T extends 'users'
-  ? Collection<User>
+  ? Collection<FullUser>
   : never;
 
 const client = new MongoClient();

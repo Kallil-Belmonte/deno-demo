@@ -15,8 +15,8 @@ const payload: UserToLogin = {
 
 const loggedUserSchema = {
   _id: 'string',
-  auth: {
-    token: 'string',
+  token: {
+    auth: 'string',
   },
   personalData: {
     photo: 'string',
@@ -53,11 +53,11 @@ Deno.test(loginUrl, async () => {
   assertEquals(response, undefined);
 
   // Assert auth token
-  const decodedToken = decode(user?.auth.token || '');
+  const decodedToken = decode(user?.token.auth || '');
   assert(isArray(decodedToken));
 
   // Assert database
   const usersCollection = getCollection('users', 'dev');
   const databaseUser = await usersCollection.findOne({ 'account.email': payload.email });
-  assertEquals(databaseUser?.auth.token, user?.auth.token);
+  assertEquals(databaseUser?.token.auth, user?.token.auth);
 });

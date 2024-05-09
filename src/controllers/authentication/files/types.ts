@@ -10,9 +10,8 @@ export type UserToResetPassword = {
 };
 
 export type LoggedUser = User & {
-  auth: {
-    token: string;
-    expiresIn: number;
+  token: {
+    auth: string;
   };
 };
 

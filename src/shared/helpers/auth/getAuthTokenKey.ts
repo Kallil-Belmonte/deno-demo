@@ -1,4 +1,4 @@
-import { load } from 'dotenv';
+import { load } from '@std/dotenv';
 
 type ApiKey = 'DEV' | 'USER';
 

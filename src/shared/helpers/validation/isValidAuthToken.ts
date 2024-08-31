@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongo';
-import { verify } from 'djwt';
+import { verify } from '@zaubrik/djwt';
 
 import { usersCollection } from '@/database/mod.ts';
 import getAuthTokenKey from '../auth/getAuthTokenKey.ts';

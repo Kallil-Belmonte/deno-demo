@@ -1,5 +1,5 @@
-import { assertEquals, assert } from 'assert';
-import { decode } from 'djwt';
+import { assertEquals, assert } from '@std/assert';
+import { decode } from '@zaubrik/djwt';
 
 import type { UserToLogin, LoggedUser } from '@/controllers/authentication/files/types.ts';
 import { request, validateBody, isArray } from '@/shared/helpers/mod.ts';

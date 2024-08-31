@@ -1,10 +1,8 @@
+import type { ObjectType } from '@/shared/files/types.ts';
 import { validateAuthTokenFromHeaders } from '@/shared/helpers/mod.ts';
 import { success } from '@/routes/_files/responses.ts';
-import accountEndpoints from './account/endpoints.ts';
 import account from './account/mod.ts';
-import authenticationEndpoints from './authentication/endpoints.ts';
 import authentication from './authentication/mod.ts';
-import userEndpoints from './user/endpoints.ts';
 import user from './user/mod.ts';
 
 const router = async (request: Request) => {
@@ -18,11 +16,24 @@ const router = async (request: Request) => {
   const response = await validateAuthTokenFromHeaders(request);
   if (response) return response;
 
-  if (accountEndpoints.includes(pathname)) return account(request);
-  if (authenticationEndpoints.includes(pathname)) return authentication(request);
-  if (userEndpoints.includes(pathname)) return user(request);
+  const routes: ObjectType = {
+    GET: {
+      ...user.GET,
+    },
+    POST: {
+      ...account.POST,
+      ...authentication.POST,
+    },
+    PUT: {
+      ...user.PUT,
+    },
+    DELETE: {
+      ...account.DELETE,
+    },
+  };
 
-  return new Response('Message not found here.');
+  if (!routes[method][pathname]) return new Response('Route not found.');
+  return routes[method][pathname](request);
 };
 
 export default router;

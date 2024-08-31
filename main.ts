@@ -1,4 +1,4 @@
-import router from '@/routes/router.ts';
+import router from '@/routes/mod.ts';
 
 const { serve } = Deno;
 

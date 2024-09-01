@@ -1,7 +1,21 @@
 import { ObjectId } from 'mongo';
 
-import type { IdParam } from '@/shared/files/types.ts';
+import type { IdParam, Option } from '@/shared/files/types.ts';
 import type { LoggedUser } from '@/controllers/authentication/files/types.ts';
+
+export type Language = 'pt-br' | 'pt-pt' | 'en-us';
+
+export type Location = {
+  country: string;
+  state: string;
+  city: string;
+};
+
+export type Addictions = {
+  smoker: Option;
+  drinksAlcohol: Option;
+  drinksWine: Option;
+};
 
 export type Gender =
   | 'Agender'
@@ -23,19 +37,19 @@ export type SexualOrientation =
   | 'Polysexual'
   | 'Queer';
 
-export type Language = 'pt-br' | 'pt-pt' | 'en-us';
-
-export type Location = {
-  country: string;
-  state: string;
-  city: string;
-};
-
-export type Addictions = {
-  smoker: boolean;
-  drinksAlcohol: boolean;
-  drinksWine: boolean;
-};
+export type ZodiacSign =
+  | 'Aquarius'
+  | 'Aries'
+  | 'Cancer'
+  | 'Capricorn'
+  | 'Gemini'
+  | 'Leo'
+  | 'Libra'
+  | 'Pisces'
+  | 'Sagittarius'
+  | 'Scorpio'
+  | 'Taurus'
+  | 'Virgo';
 
 export type GetUserParams = Partial<IdParam> & {
   email?: string;

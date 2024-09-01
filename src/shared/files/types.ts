@@ -14,6 +14,8 @@ export type IdsParam = {
   ids: string[];
 };
 
+export type Option = 'yes' | 'no';
+
 export type DataItem<Title = string> = {
   _id: string;
   title: Title;

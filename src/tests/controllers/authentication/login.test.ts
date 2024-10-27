@@ -1,17 +1,17 @@
-import { assertEquals, assert } from '@std/assert';
+import { assert, assertEquals } from '@std/assert';
 import { object, string } from '@valibot/valibot';
 import { decode } from '@zaubrik/djwt';
 
-import type { UserToLogin, LoggedUser } from '@/controllers/authentication/files/types.ts';
-import { request, validateSchema, isArray } from '@/shared/helpers/mod.ts';
-import { getObjectIdSchema, getMinLengthSchema } from '@/shared/files/schemas.ts';
+import type { LoggedUser, UserToLogin } from '@/controllers/authentication/files/types.ts';
+import { isArray, request, validateSchema } from '@/shared/helpers/mod.ts';
+import { getMinLengthSchema, getObjectIdSchema } from '@/shared/files/schemas.ts';
 import { loginUrl } from '@/routes/authentication/endpoints.ts';
 import { getCollection } from '@/database/mod.ts';
 import {
-  PersonalDataSchema,
   AccountSchema,
-  LocationSchema,
   AddictionsSchema,
+  LocationSchema,
+  PersonalDataSchema,
 } from '@/tests/files/schemas.ts';
 
 const { stringify } = JSON;

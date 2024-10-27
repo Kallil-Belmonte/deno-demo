@@ -10,23 +10,23 @@ import {
   nonEmpty,
   number,
   object,
-  pipe,
   partial,
+  pipe,
   string,
 } from '@valibot/valibot';
 
 import type { Option } from '@/shared/files/types.ts';
 import type {
-  Language,
   Gender,
+  Language,
   SexualOrientation,
   ZodiacSign,
 } from '@/controllers/user/files/types.ts';
 import {
-  OPTIONS,
-  LANGUAGES,
   COUNTRIES,
   GENDERS,
+  LANGUAGES,
+  OPTIONS,
   SEXUAL_ORIENTATIONS,
   ZODIAC_SIGNS,
 } from '@/shared/files/consts.ts';
@@ -65,7 +65,7 @@ export const GenderSchema = pipe(
 
 export const GendersSchema = pipe(
   array(string("Invalid 'genders' type: Expected string[].")),
-  everyItem(item => GENDERS.includes(item as Gender), "Some value in 'genders' is not valid."),
+  everyItem((item) => GENDERS.includes(item as Gender), "Some value in 'genders' is not valid."),
 );
 
 export const SexualOrientationSchema = pipe(
@@ -79,7 +79,7 @@ export const SexualOrientationSchema = pipe(
 export const SexualOrientationsSchema = pipe(
   array(string("Invalid 'sexuaOrientations' type: Expected string[].")),
   everyItem(
-    item => SEXUAL_ORIENTATIONS.includes(item as SexualOrientation),
+    (item) => SEXUAL_ORIENTATIONS.includes(item as SexualOrientation),
     "Some value in 'sexuaOrientations' is not valid.",
   ),
 );
@@ -92,7 +92,7 @@ export const ZodiacSignSchema = pipe(
 export const ZodiacSignsSchema = pipe(
   array(string("Invalid 'zodiacSigns' type: Expected string[].")),
   everyItem(
-    item => ZODIAC_SIGNS.includes(item as ZodiacSign),
+    (item) => ZODIAC_SIGNS.includes(item as ZodiacSign),
     "Some value in 'zodiacSigns' is not valid.",
   ),
 );

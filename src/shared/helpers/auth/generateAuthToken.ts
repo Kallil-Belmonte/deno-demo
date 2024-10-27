@@ -1,4 +1,4 @@
-import { type Header, type Payload, create } from '@zaubrik/djwt';
+import { create, type Header, type Payload } from '@zaubrik/djwt';
 
 import { AUTH_TOKEN_ISSUER } from '@/shared/files/consts.ts';
 import getAuthTokenKey from './getAuthTokenKey.ts';

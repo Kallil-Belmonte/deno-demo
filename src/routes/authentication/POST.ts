@@ -1,5 +1,5 @@
-import { login, forgotPassword, resetPassword } from '@/controllers/mod.ts';
-import { loginUrl, forgotPasswordUrl, resetPasswordUrl } from './endpoints.ts';
+import { forgotPassword, login, resetPassword } from '@/controllers/mod.ts';
+import { forgotPasswordUrl, loginUrl, resetPasswordUrl } from './endpoints.ts';
 
 const POST = {
   [loginUrl]: login,

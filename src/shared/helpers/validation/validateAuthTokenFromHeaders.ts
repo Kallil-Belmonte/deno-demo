@@ -1,11 +1,11 @@
 import type { ObjectType } from '@/shared/files/types.ts';
 import { accountUrl } from '@/routes/account/endpoints.ts';
 import {
-  loginUrl,
   forgotPasswordUrl,
+  loginUrl,
   resetPasswordUrl,
 } from '@/routes/authentication/endpoints.ts';
-import { unauthorized, forbidden } from '@/routes/_files/responses.ts';
+import { forbidden, unauthorized } from '@/routes/_files/responses.ts';
 import isValidAuthToken from './isValidAuthToken.ts';
 
 const urlsWithoutAuthToken: ObjectType = {
@@ -25,8 +25,9 @@ const validateAuthTokenFromHeaders = async (request: Request) => {
   if (urlsWithoutAuthToken[method]?.includes(pathname)) return null;
 
   const authHeader = headers.get('Authorization');
-  if (!authHeader?.startsWith('Bearer '))
+  if (!authHeader?.startsWith('Bearer ')) {
     return unauthorized({ messages: ['Authentication token is required.'] });
+  }
 
   const authToken = authHeader.replace('Bearer ', '');
   const isValid = await isValidAuthToken(authToken);

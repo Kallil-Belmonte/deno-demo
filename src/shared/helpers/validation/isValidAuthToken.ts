@@ -1,18 +1,20 @@
 import { ObjectId } from 'mongo';
 import { verify } from '@zaubrik/djwt';
 
-import { usersCollection } from '@/database/mod.ts';
+import { type Environment, getCollection } from '@/database/mod.ts';
 import getAuthTokenKey from '../auth/getAuthTokenKey.ts';
 import isValidObjectId from './isValidObjectId.ts';
 
-const API_KEYS: Parameters<typeof getAuthTokenKey>[0][] = ['DEV', 'USER'];
+const API_KEYS: Parameters<typeof getAuthTokenKey>[0][] = ['DEV', 'ANALYTICS', 'USER'];
 
 /**
  * @function isValidAuthToken
  * @description Checks if the auth token is valid.
+ * @param { string } authToken - Auth token.
+ * @param { Environment } environment - Environment.
  */
 
-const isValidAuthToken = async (authToken: string) => {
+const isValidAuthToken = async (authToken: string, environment: Environment) => {
   let valid = false;
 
   for (const apiKey of API_KEYS) {
@@ -29,13 +31,13 @@ const isValidAuthToken = async (authToken: string) => {
 
       // User
       if (isValidObjectId(sub)) {
-        const user = await usersCollection.findOne(
+        const user = await getCollection('users', environment).findOne(
           { _id: new ObjectId(sub) },
-          { projection: { auth: 1 } },
+          { projection: { token: 1 } },
         );
         if (!user) break;
 
-        valid = user?.auth.token === authToken;
+        valid = user?.token.auth === authToken;
         break;
       }
     } catch {

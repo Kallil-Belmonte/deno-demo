@@ -1,4 +1,4 @@
-import { type ObjectSchema, type ObjectIssue, safeParse } from '@valibot/valibot';
+import { type ObjectIssue, type ObjectSchema, safeParse } from '@valibot/valibot';
 
 import type { ObjectType } from '@/shared/files/types.ts';
 

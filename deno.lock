@@ -2,30 +2,22 @@
   "version": "4",
   "specifiers": {
     "jsr:@lucsoft/web-bson@~0.3.1": "0.3.1",
-    "jsr:@std/assert@1.0.2": "1.0.2",
     "jsr:@std/crypto@~0.220.1": "0.220.1",
-    "jsr:@std/dotenv@0.225.0": "0.225.0",
+    "jsr:@std/dotenv@0.225.2": "0.225.2",
     "jsr:@std/encoding@0.224.0": "0.224.0",
     "jsr:@std/encoding@~0.220.1": "0.220.1",
-    "jsr:@std/internal@^1.0.1": "1.0.4",
-    "jsr:@valibot/valibot@0.37.0": "0.37.0",
+    "jsr:@valibot/valibot@0.42.1": "0.42.1",
     "jsr:@zaubrik/djwt@3.0.2": "3.0.2"
   },
   "jsr": {
     "@lucsoft/web-bson@0.3.1": {
       "integrity": "dccad36fe5cc68286a4d3fe1993f7e7a81df0970c5946a5894dae9173adafe60"
     },
-    "@std/assert@1.0.2": {
-      "integrity": "ccacec332958126deaceb5c63ff8b4eaf9f5ed0eac9feccf124110435e59e49c",
-      "dependencies": [
-        "jsr:@std/internal"
-      ]
-    },
     "@std/crypto@0.220.1": {
       "integrity": "4cec173974f33398041a3f66cc2f9b2fcc4a5ceaddd0e60840887d3bb7289d23"
     },
-    "@std/dotenv@0.225.0": {
-      "integrity": "44db32932c67df82790a3e6847d7007befb6cc22d71f2f3ee7b7d00e1f0d6c94"
+    "@std/dotenv@0.225.2": {
+      "integrity": "e2025dce4de6c7bca21dece8baddd4262b09d5187217e231b033e088e0c4dd23"
     },
     "@std/encoding@0.220.1": {
       "integrity": "8dc38dd72e36cd68857a5837e24eb09a64bb296b96c295239c75eec17d45d23f"
@@ -33,11 +25,8 @@
     "@std/encoding@0.224.0": {
       "integrity": "efb6dca97d3e9c31392bd5c8cfd9f9fc9decf5a1f4d1f78af7900a493bcf89b5"
     },
-    "@std/internal@1.0.4": {
-      "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
-    },
-    "@valibot/valibot@0.37.0": {
-      "integrity": "ae604b714f14c79d61d6887d5a48ab43d570dc4706075c58f1c6d25abf242443"
+    "@valibot/valibot@0.42.1": {
+      "integrity": "ba0f6f7964aaeec0e4b1f793d575061f325ae6254cbb9d7ff01fb65068a0a23b"
     },
     "@zaubrik/djwt@3.0.2": {
       "integrity": "8070adaa49cd9e5d2b8ae82fd461132c966ef2f8ff8378db4a4da8df4f17c664",
@@ -88,9 +77,9 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1.0.2",
-      "jsr:@std/dotenv@0.225.0",
-      "jsr:@valibot/valibot@0.37.0",
+      "jsr:@std/assert@1.0.6",
+      "jsr:@std/dotenv@0.225.2",
+      "jsr:@valibot/valibot@0.42.1",
       "jsr:@zaubrik/djwt@3.0.2"
     ]
   }

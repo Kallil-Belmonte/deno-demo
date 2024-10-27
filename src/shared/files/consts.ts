@@ -1,7 +1,7 @@
 import type { Option } from '@/shared/files/types.ts';
 import type {
-  Language,
   Gender,
+  Language,
   SexualOrientation,
   ZodiacSign,
 } from '@/controllers/user/files/types.ts';

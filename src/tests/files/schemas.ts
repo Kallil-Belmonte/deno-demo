@@ -1,14 +1,14 @@
-import { object, null as vNull, string } from '@valibot/valibot';
+import { null as vNull, object, string } from '@valibot/valibot';
 
 import {
-  EmailSchema,
-  LanguageSchema,
   CountrySchema,
+  EmailSchema,
   GenderSchema,
+  getOptionSchema,
+  getStringSchema,
+  LanguageSchema,
   SexualOrientationSchema,
   ZodiacSignSchema,
-  getStringSchema,
-  getOptionSchema,
 } from '@/shared/files/schemas.ts';
 
 export const PersonalDataSchema = object({

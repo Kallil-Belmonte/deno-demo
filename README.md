@@ -11,6 +11,7 @@
 
 ## 👨‍💻 Commands
 
-| Command           | Description   |
-| ----------------- | ------------- |
-| `deno task start` | Runs the app. |
+| Command           | Description       |
+| ----------------- | ----------------- |
+| `deno task start` | Start the server. |
+| `deno task test`  | Run all tests.    |

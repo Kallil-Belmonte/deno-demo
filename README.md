@@ -1,10 +1,5 @@
 # Deno demo
 
-## 📑 Summary
-
-- [Docs](#-docs)
-- [Commands](#-commands)
-
 ## 🗐 Docs
 
 [Deno](https://deno.land)

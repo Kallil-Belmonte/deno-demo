@@ -7,6 +7,10 @@
     "test": {
       "command": "deno test --watch --allow-net",
       "description": "Run all tests"
+    },
+    "update": {
+      "command": "deno outdated --update --latest",
+      "description": "Update all packages"
     }
   },
   "fmt": {

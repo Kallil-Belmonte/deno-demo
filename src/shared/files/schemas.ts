@@ -15,13 +15,12 @@ import {
   string,
 } from '@valibot/valibot';
 
-import type { Option } from '@/shared/files/types.ts';
 import type {
   Gender,
   Language,
   SexualOrientation,
   ZodiacSign,
-} from '@/controllers/user/files/types.ts';
+} from '@/modules/user/controllers/files/types.ts';
 import {
   COUNTRIES,
   GENDERS,
@@ -30,6 +29,7 @@ import {
   SEXUAL_ORIENTATIONS,
   ZODIAC_SIGNS,
 } from '@/shared/files/consts.ts';
+import type { Option } from '@/shared/files/types.ts';
 import { isValidObjectId } from '@/shared/helpers/mod.ts';
 
 /**

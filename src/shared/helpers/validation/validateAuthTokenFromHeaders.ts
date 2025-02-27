@@ -1,11 +1,12 @@
-import type { ObjectType } from '@/shared/files/types.ts';
-import { accountUrl } from '@/routes/account/endpoints.ts';
+import { getEnvironment } from '@/core/database/mod.ts';
+import { forbidden, unauthorized } from '@/core/router/responses.ts';
+import { accountUrl } from '@/modules/account/router/endpoints.ts';
 import {
   forgotPasswordUrl,
   loginUrl,
   resetPasswordUrl,
-} from '@/routes/authentication/endpoints.ts';
-import { forbidden, unauthorized } from '@/routes/_files/responses.ts';
+} from '@/modules/authentication/router/endpoints.ts';
+import type { ObjectType } from '@/shared/files/types.ts';
 import isValidAuthToken from './isValidAuthToken.ts';
 
 const urlsWithoutAuthToken: ObjectType = {
@@ -15,7 +16,7 @@ const urlsWithoutAuthToken: ObjectType = {
 /**
  * @function validateAuthTokenFromHeaders
  * @description Checks if the auth token from the headers is valid.
- * @param { Headers } headers - Headers.
+ * @param { Request } request - Request object.
  */
 
 const validateAuthTokenFromHeaders = async (request: Request) => {
@@ -24,14 +25,12 @@ const validateAuthTokenFromHeaders = async (request: Request) => {
 
   if (urlsWithoutAuthToken[method]?.includes(pathname)) return null;
 
-  const authHeader = headers.get('Authorization');
-  if (!authHeader?.startsWith('Bearer ')) {
-    return unauthorized({ messages: ['Authentication token is required.'] });
-  }
+  const auth = headers.get('Authorization');
+  if (!auth) return unauthorized(request, { messages: ['Authentication token is required.'] });
 
-  const authToken = authHeader.replace('Bearer ', '');
-  const isValid = await isValidAuthToken(authToken);
-  return isValid ? null : forbidden({ messages: ['Invalid authentication token.'] });
+  const environment = getEnvironment(request);
+  const isValid = await isValidAuthToken(auth, environment);
+  return isValid ? null : forbidden(request, { messages: ['Invalid authentication token.'] });
 };
 
 export default validateAuthTokenFromHeaders;

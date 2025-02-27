@@ -14,6 +14,10 @@ export type IdsParam = {
   ids: string[];
 };
 
+export type UserIdParam = {
+  userId: string;
+};
+
 export type Option = 'yes' | 'no';
 
 export type DataItem<Title = string> = {

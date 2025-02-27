@@ -1,5 +1,10 @@
-import router from '@/routes/mod.ts';
+import router from '@/core/router/mod.ts';
+import webSocket from '@/core/web-socket/mod.ts';
 
-const { serve } = Deno;
-
-serve(router);
+Deno.serve({
+  port: 8000,
+  handler: (request) => {
+    if (request.headers.get('upgrade') === 'websocket') return webSocket(request);
+    return router(request);
+  },
+});

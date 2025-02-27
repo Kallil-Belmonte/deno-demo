@@ -1,7 +1,7 @@
-import { ObjectId } from 'mongo';
 import { verify } from '@zaubrik/djwt';
+import { ObjectId } from 'mongo';
 
-import { type Environment, getCollection } from '@/database/mod.ts';
+import { type Environment, getCollection } from '@/core/database/mod.ts';
 import getAuthTokenKey from '../auth/getAuthTokenKey.ts';
 import isValidObjectId from './isValidObjectId.ts';
 
@@ -10,12 +10,16 @@ const API_KEYS: Parameters<typeof getAuthTokenKey>[0][] = ['DEV', 'ANALYTICS', '
 /**
  * @function isValidAuthToken
  * @description Checks if the auth token is valid.
- * @param { string } authToken - Auth token.
+ * @param { string } auth - Authorization.
  * @param { Environment } environment - Environment.
  */
 
-const isValidAuthToken = async (authToken: string, environment: Environment) => {
+const isValidAuthToken = async (auth: string, environment: Environment) => {
   let valid = false;
+
+  if (!auth.startsWith('Bearer ')) return valid;
+
+  const authToken = auth.replace('Bearer ', '');
 
   for (const apiKey of API_KEYS) {
     try {

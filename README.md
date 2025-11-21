@@ -4,9 +4,8 @@
 
 [Deno](https://deno.land)
 
+[TypeScript](https://www.typescriptlang.org)
+
 ## 👨‍💻 Commands
 
-| Command           | Description       |
-| ----------------- | ----------------- |
-| `deno task start` | Start the server. |
-| `deno task test`  | Run all tests.    |
+[ni](https://github.com/antfu-collective/ni)

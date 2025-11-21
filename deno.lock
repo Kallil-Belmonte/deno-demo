@@ -2,12 +2,12 @@
   "version": "5",
   "specifiers": {
     "jsr:@lucsoft/web-bson@~0.3.1": "0.3.1",
-    "jsr:@std/assert@1.0.13": "1.0.13",
+    "jsr:@std/assert@1.0.16": "1.0.16",
     "jsr:@std/crypto@~0.220.1": "0.220.1",
     "jsr:@std/dotenv@0.225.5": "0.225.5",
     "jsr:@std/encoding@0.224.0": "0.224.0",
     "jsr:@std/encoding@~0.220.1": "0.220.1",
-    "jsr:@std/internal@^1.0.6": "1.0.6",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@valibot/valibot@1.1.0": "1.1.0",
     "jsr:@zaubrik/djwt@3.0.2": "3.0.2"
   },
@@ -15,8 +15,8 @@
     "@lucsoft/web-bson@0.3.1": {
       "integrity": "dccad36fe5cc68286a4d3fe1993f7e7a81df0970c5946a5894dae9173adafe60"
     },
-    "@std/assert@1.0.13": {
-      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29",
+    "@std/assert@1.0.16": {
+      "integrity": "6a7272ed1eaa77defe76e5ff63ca705d9c495077e2d5fd0126d2b53fc5bd6532",
       "dependencies": [
         "jsr:@std/internal"
       ]
@@ -33,8 +33,8 @@
     "@std/encoding@0.224.0": {
       "integrity": "efb6dca97d3e9c31392bd5c8cfd9f9fc9decf5a1f4d1f78af7900a493bcf89b5"
     },
-    "@std/internal@1.0.6": {
-      "integrity": "9533b128f230f73bd209408bb07a4b12f8d4255ab2a4d22a1fd6d87304aca9a4"
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
     },
     "@valibot/valibot@1.1.0": {
       "integrity": "2617f02b532011b8140926899d420a3e1bbb0fcb7cdf8e7b669df89e7edd7f5f"
@@ -88,7 +88,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1.0.13",
+      "jsr:@std/assert@1.0.16",
       "jsr:@std/dotenv@0.225.5",
       "jsr:@valibot/valibot@1.1.0",
       "jsr:@zaubrik/djwt@3.0.2"

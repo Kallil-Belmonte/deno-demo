@@ -3,8 +3,8 @@ import type {
   Language,
   SexualOrientation,
   ZodiacSign,
-} from '@/modules/user/controllers/files/types.ts';
-import type { Option } from '@/shared/files/types.ts';
+} from '../../modules/user/controllers/files/types.ts';
+import type { Option } from './types.ts';
 
 export const PROJECT_TITLE = 'Demo';
 
@@ -12,7 +12,10 @@ export const DOMAIN_URL = `${PROJECT_TITLE.toLowerCase()}.com`;
 
 export const WEBSITE_URL = `https://www.${DOMAIN_URL}`;
 
-export const ALLOWED_ORIGINS = [WEBSITE_URL];
+export const ALLOWED_ORIGINS = [
+  new RegExp(`^(https?://)?(www.)?${DOMAIN_URL}$`),
+  new RegExp(`^(https?://)?(www.)?app.${DOMAIN_URL}$`),
+];
 
 export const AUTH_TOKEN_ISSUER = `api.${DOMAIN_URL}`;
 

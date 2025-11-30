@@ -1,11 +1,11 @@
 {
   "tasks": {
     "start": {
-      "command": "deno run --allow-env --allow-net --allow-read --allow-write --watch main.ts",
+      "command": "deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
       "description": "Start the server"
     },
     "test": {
-      "command": "deno test --watch --allow-net",
+      "command": "deno test --allow-env --allow-net --watch",
       "description": "Run all tests"
     },
     "update": {

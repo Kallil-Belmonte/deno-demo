@@ -5,13 +5,16 @@ type Config = {
 
 const { stringify } = JSON;
 
-const INIT = { method: 'GET' };
+const INIT = {
+  method: 'GET',
+};
+
 const HEADERS = {
   'Content-Type': 'application/json',
-  Environment: 'dev',
 };
+
 const AUTH_TOKEN =
-  'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkubXlzdGVyaXR5LmNvbSIsInN1YiI6ImRldiIsImlhdCI6MTY5NzM4MjQ2MzQ0MywiZXhwIjoxNjk3OTg3MjYzNDQyfQ.s42R3mogVxnObo8q91f34EhpSYCtYpmXBLyvJhUWS5VN17OpVFLLCyuK0uwZalsPc8vQpb5h8NJes-JRWEm1iw';
+  'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkuZGVtby5jb20iLCJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzY0NTQ3MDAwLCJleHAiOjE2OTc5ODcyNjM0NDJ9.KRnenTDvP_kzKQHCbYBsMjOvWMvN6dZE16ICw29Uu4H7jwyiDdYx6G3ve25SlpAiwDLnOss1THQ4zAQlI3B-WQ';
 
 /**
  * @function request

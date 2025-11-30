@@ -1,4 +1,3 @@
-import type { Environment } from '@/core/database/mod.ts';
 import type { ObjectType } from '@/shared/files/types.ts';
 
 export type WebSocketFrontendEvents =
@@ -26,6 +25,5 @@ export type WebSocketBackendData<Payload> = {
 };
 
 export type WebSocketParams<Payload> = {
-  environment: Environment;
   payload: Payload;
 };

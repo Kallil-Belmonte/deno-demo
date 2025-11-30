@@ -1,8 +1,8 @@
-import account from '@/modules/account/router/mod.ts';
-import authentication from '@/modules/authentication/router/mod.ts';
-import user from '@/modules/user/router/mod.ts';
-import type { ObjectType } from '@/shared/files/types.ts';
-import { validateAuthTokenFromHeaders } from '@/shared/helpers/mod.ts';
+import account from '../../modules/account/router/mod.ts';
+import authentication from '../../modules/authentication/router/mod.ts';
+import user from '../../modules/user/router/mod.ts';
+import type { ObjectType } from '../../shared/files/types.ts';
+import { isFlood, validateAuthTokenFromHeaders, validateCORS } from '../../shared/helpers/mod.ts';
 import { success } from './responses.ts';
 
 const router = async (request: Request) => {
@@ -12,9 +12,17 @@ const router = async (request: Request) => {
   // Preflight request
   if (method === 'OPTIONS') return success(request, null);
 
+  // Validate CORS
+  const corsError = validateCORS(request);
+  if (corsError) return corsError;
+
   // Validate auth token from headers
-  const response = await validateAuthTokenFromHeaders(request);
-  if (response) return response;
+  const authTokenError = await validateAuthTokenFromHeaders(request);
+  if (authTokenError) return authTokenError;
+
+  // Validate flood limit
+  const floodError = isFlood(request);
+  if (floodError) return floodError;
 
   const routes: ObjectType = {
     GET: {

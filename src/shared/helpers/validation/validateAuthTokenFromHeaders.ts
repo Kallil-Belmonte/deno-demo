@@ -1,12 +1,11 @@
-import { getEnvironment } from '@/core/database/mod.ts';
-import { forbidden, unauthorized } from '@/core/router/responses.ts';
-import { accountUrl } from '@/modules/account/router/endpoints.ts';
+import { forbidden, unauthorized } from '../../../core/router/responses.ts';
+import { accountUrl } from '../../../modules/account/router/endpoints.ts';
 import {
   forgotPasswordUrl,
   loginUrl,
   resetPasswordUrl,
-} from '@/modules/authentication/router/endpoints.ts';
-import type { ObjectType } from '@/shared/files/types.ts';
+} from '../../../modules/authentication/router/endpoints.ts';
+import type { ObjectType } from '../../files/types.ts';
 import isValidAuthToken from './isValidAuthToken.ts';
 
 const urlsWithoutAuthToken: ObjectType = {
@@ -28,8 +27,7 @@ const validateAuthTokenFromHeaders = async (request: Request) => {
   const auth = headers.get('Authorization');
   if (!auth) return unauthorized(request, { messages: ['Authentication token is required.'] });
 
-  const environment = getEnvironment(request);
-  const isValid = await isValidAuthToken(auth, environment);
+  const isValid = await isValidAuthToken(auth);
   return isValid ? null : forbidden(request, { messages: ['Invalid authentication token.'] });
 };
 

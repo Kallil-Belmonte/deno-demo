@@ -1,11 +1,10 @@
-import type { Environment } from '@/core/database/mod.ts';
 import {
   deleteChatMessages,
   editChatMessage,
   getChatMessages,
   sendChatMessage,
   setChatMessageStatus,
-} from '@/modules/chat/controllers/mod.ts';
+} from '../../../modules/chat/controllers/mod.ts';
 import type { WebSocketFrontendData, WebSocketParams } from '../types.ts';
 
 const { parse } = JSON;
@@ -15,9 +14,7 @@ type Params = {
   request: Request;
 };
 
-const message = ({ event, request }: Params) => {
-  const url = new URL(request.url);
-  const environment = url.searchParams.get('Environment') as Environment;
+const message = ({ event }: Params) => {
   const data: WebSocketFrontendData = parse(event.data);
 
   type Events = Record<
@@ -33,7 +30,7 @@ const message = ({ event, request }: Params) => {
     'set-chat-message-status': setChatMessageStatus,
   };
 
-  events[data.event]({ environment, payload: data.payload });
+  events[data.event]({ payload: data.payload });
 };
 
 export default message;

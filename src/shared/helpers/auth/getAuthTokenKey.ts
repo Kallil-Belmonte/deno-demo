@@ -1,6 +1,6 @@
 import { load } from '@std/dotenv';
 
-type ApiKey = 'DEV' | 'ANALYTICS' | 'USER';
+type ApiKey = 'TEST' | 'USER';
 
 /**
  * @function getAuthTokenKey

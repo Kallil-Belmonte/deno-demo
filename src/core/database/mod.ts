@@ -1,9 +1,7 @@
 import { Collection, MongoClient } from 'mongo';
 
-import type { FullUser } from '@/modules/user/controllers/files/types.ts';
-import type { CollectionDataItem } from '@/shared/files/types.ts';
-
-export type Environment = 'dev' | 'prod' | null;
+import type { FullUser } from '../../modules/user/controllers/files/types.ts';
+import type { CollectionDataItem } from '../../shared/files/types.ts';
 
 export type CollectionName = 'genders' | 'sexual-orientations' | 'users';
 
@@ -13,17 +11,14 @@ type CollectionReturn<T> = T extends 'genders' ? Collection<CollectionDataItem>
   : never;
 
 const client = new MongoClient();
-await client.connect('mongodb://127.0.0.1:27017');
-
-export const getEnvironment = (request: Request) =>
-  request.headers.get('Environment') as Environment;
+await client.connect(
+  Deno.env.has('PROD') ? 'mongodb://127.0.0.1:27017' : 'mongodb://127.0.0.1:27017',
+);
 
 export const getCollection = <Type extends CollectionName>(
   name: Type,
-  environment: Environment,
 ): CollectionReturn<Type> => {
-  const databaseName = `name${environment && environment !== 'prod' ? `-${environment}` : ''}`;
-  const database = client.database(databaseName);
+  const database = client.database('name');
   const collection = database.collection(name) as CollectionReturn<Type>;
   return collection;
 };

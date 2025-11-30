@@ -1,9 +1,9 @@
-import { send } from '@/core/web-socket/events/mod.ts';
-import type { WebSocketParams } from '@/core/web-socket/types.ts';
-import type { ChatMessageToSend } from '@/modules/chat/controllers/files/types.ts';
+import { send } from '../../../core/web-socket/events/mod.ts';
+import type { WebSocketParams } from '../../../core/web-socket/types.ts';
+import type { ChatMessageToSend } from './files/types.ts';
 
 const sendChatMessage = async (
-  { environment, payload }: WebSocketParams<ChatMessageToSend>,
+  { payload }: WebSocketParams<ChatMessageToSend>,
 ) => {
   const { author, time, message, replyFrom } = payload;
 

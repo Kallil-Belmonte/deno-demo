@@ -10,7 +10,7 @@ export const PROJECT_TITLE = 'Demo';
 
 export const DOMAIN_URL = `${PROJECT_TITLE.toLowerCase()}.com`;
 
-export const WEBSITE_URL = `https://www.${DOMAIN_URL}`;
+export const WEBSITE_URL = `https://${DOMAIN_URL}`;
 
 export const ALLOWED_ORIGINS = [
   new RegExp(`^(https?://)?(www.)?${DOMAIN_URL}$`),

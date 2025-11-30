@@ -12,7 +12,7 @@ type CollectionReturn<T> = T extends 'genders' ? Collection<CollectionDataItem>
 
 const client = new MongoClient();
 await client.connect(
-  Deno.env.has('PROD') ? 'mongodb://127.0.0.1:27017' : 'mongodb://127.0.0.1:27017',
+  Deno.env.has('PROD') ? Deno.env.get('DATABASE_CONNECTION')! : 'mongodb://127.0.0.1:27017',
 );
 
 export const getCollection = <Type extends CollectionName>(

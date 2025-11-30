@@ -1,6 +1,7 @@
 import { create, type Header, type Payload } from '@zaubrik/djwt';
+import type { ObjectId } from 'mongo';
 
-import { AUTH_TOKEN_ISSUER } from '@/shared/files/consts.ts';
+import { AUTH_TOKEN_ISSUER } from '../../files/consts.ts';
 import getAuthTokenKey from './getAuthTokenKey.ts';
 
 // iss (Issuer): The issuer of the JWT token, i.e. the entity that issued the token.
@@ -15,13 +16,12 @@ import getAuthTokenKey from './getAuthTokenKey.ts';
  * @function generateAuthToken
  * @description Generates the auth token.
  * @param { ApiKey } apiKey - Token subject.
- * @param { string } sub - Token subject.
+ * @param { ObjectId } sub - Token subject.
  * @param { number } [tokenDuration=7] - Token duration in days.
  */
 
 const generateAuthToken = async (
-  apiKey: Parameters<typeof getAuthTokenKey>[0],
-  sub: string,
+  sub: ObjectId,
   tokenDuration = 7,
 ) => {
   const expirationDate = new Date();
@@ -30,11 +30,11 @@ const generateAuthToken = async (
   const header: Header = { alg: 'HS512', typ: 'JWT' };
   const payload: Payload = {
     iss: AUTH_TOKEN_ISSUER,
-    sub,
+    sub: sub.toString(),
     iat: new Date().getTime(),
     exp: expirationDate.getTime(),
   };
-  const key = await getAuthTokenKey(apiKey);
+  const key = await getAuthTokenKey();
   const token = await create(header, payload, key);
 
   return token;

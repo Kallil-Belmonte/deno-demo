@@ -1,15 +1,13 @@
 import { load } from '@std/dotenv';
 
-type ApiKey = 'TEST' | 'USER';
-
 /**
  * @function getAuthTokenKey
  * @description Gets the auth token key.
  */
 
-const getAuthTokenKey = async (apiKey: ApiKey) => {
+const getAuthTokenKey = async () => {
   await load({ export: true });
-  const keyString = Deno.env.get(`API_${apiKey}_KEY`);
+  const keyString = Deno.env.get('API_KEY');
   const encoder = new TextEncoder();
   const keyBytes = encoder.encode(keyString);
   const algorithm: HmacImportParams = { name: 'HMAC', hash: 'SHA-512' };

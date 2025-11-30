@@ -12,6 +12,8 @@ const lastSubmission = new Map<string, number>();
  */
 
 const isFlood = (request: Request) => {
+  if (Deno.env.has('TEST')) return null;
+
   const now = Date.now();
   const last = lastSubmission.get(getIp(request));
 

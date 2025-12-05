@@ -1,7 +1,7 @@
 import { tooManyRequests } from '../../../core/router/responses.ts';
 import getIp from '../data/getIp.ts';
 
-export const minimunDelayBetweenRequests = 1000; // in milliseconds
+export const minimunDelayBetweenRequests = 500; // in milliseconds
 
 const lastSubmission = new Map<string, number>();
 
@@ -12,7 +12,7 @@ const lastSubmission = new Map<string, number>();
  */
 
 const isFlood = (request: Request) => {
-  if (Deno.env.has('TEST')) return null;
+  if (Deno.env.has('DEV')) return null;
 
   const now = Date.now();
   const last = lastSubmission.get(getIp(request));

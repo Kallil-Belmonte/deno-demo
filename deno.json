@@ -4,8 +4,8 @@
       "command": "deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
       "description": "Start the server"
     },
-    "start:test": {
-      "command": "TEST='true' deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
+    "dev": {
+      "command": "DEV='true' deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
       "description": "Start the server in testing mode"
     },
     "test": {

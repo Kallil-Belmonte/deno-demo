@@ -12,7 +12,7 @@ import isValidObjectId from './isValidObjectId.ts';
  */
 
 const isValidAuthToken = async (auth: string) => {
-  if (Deno.env.has('TEST')) return true;
+  if (Deno.env.has('DEV')) return true;
   if (!auth.startsWith('Bearer ')) return false;
 
   const authToken = auth.replace('Bearer ', '');

@@ -6,7 +6,7 @@
     },
     "dev": {
       "command": "DEV='true' deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
-      "description": "Start the server in testing mode"
+      "description": "Start the server in development mode"
     },
     "test": {
       "command": "deno test --allow-env --allow-net --watch",

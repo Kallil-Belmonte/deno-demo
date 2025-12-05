@@ -9,7 +9,7 @@ import getOrigin from '../data/getOrigin.ts';
  */
 
 const validateCORS = (request: Request) =>
-  !Deno.env.has('PROD') || ALLOWED_ORIGINS.some((regex) => regex.test(getOrigin(request)))
+  Deno.env.has('DEV') || ALLOWED_ORIGINS.some((regex) => regex.test(getOrigin(request)))
     ? null
     : forbidden(request, { messages: ['CORS blocked: Origin not allowed.'] });
 

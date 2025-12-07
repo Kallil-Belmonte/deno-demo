@@ -1,15 +1,15 @@
 {
   "tasks": {
     "start": {
-      "command": "deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
+      "command": "deno run --env-file --allow-env --allow-net --allow-read --allow-write --watch main.ts",
       "description": "Start the server"
     },
     "dev": {
-      "command": "DEV='true' deno run --allow-env --allow-net --allow-read --allow-write --env-file --watch main.ts",
+      "command": "DEV='true' deno run --env-file --allow-env --allow-net --allow-read --allow-write --watch main.ts",
       "description": "Start the server in development mode"
     },
     "test": {
-      "command": "deno test --allow-env --allow-net --watch",
+      "command": "deno test --env-file --allow-env --allow-net --watch",
       "description": "Run all tests"
     },
     "update": {

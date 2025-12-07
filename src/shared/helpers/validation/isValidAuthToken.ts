@@ -11,7 +11,7 @@ import isValidObjectId from './isValidObjectId.ts';
  * @param { string } auth - Authorization.
  */
 
-const isValidAuthToken = async (auth: string = '') => {
+const isValidAuthToken = async (auth: string) => {
   if (Deno.env.has('DEV')) return true;
   if (!auth.startsWith('Bearer ')) return false;
 

@@ -1,5 +1,5 @@
 import { forbidden } from '@/core/router/responses.ts';
-import { ALLOWED_ORIGINS } from '../../files/consts.ts';
+import { ALLOWED_ORIGINS } from '@/shared/files/consts.ts';
 import getOrigin from '../data/getOrigin.ts';
 
 /**

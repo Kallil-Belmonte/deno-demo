@@ -1,11 +1,11 @@
 import { forbidden, unauthorized } from '@/core/router/responses.ts';
-import { accountUrl } from '../../../modules/account/router/endpoints.ts';
+import { accountUrl } from '@/modules/account/router/endpoints.ts';
 import {
   forgotPasswordUrl,
   loginUrl,
   resetPasswordUrl,
-} from '../../../modules/authentication/router/endpoints.ts';
-import type { ObjectType } from '../../files/types.ts';
+} from '@/modules/authentication/router/endpoints.ts';
+import type { ObjectType } from '@/shared/files/types.ts';
 import isValidAuthToken from './isValidAuthToken.ts';
 
 const urlsWithoutAuthToken: ObjectType = {

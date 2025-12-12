@@ -1,7 +1,7 @@
 import { create, type Header, type Payload } from '@zaubrik/djwt';
 import type { ObjectId } from 'mongo';
 
-import { AUTH_TOKEN_ISSUER } from '../../files/consts.ts';
+import { AUTH_TOKEN_ISSUER } from '@/shared/files/consts.ts';
 import getAuthTokenKey from './getAuthTokenKey.ts';
 
 // iss (Issuer): The issuer of the JWT token, i.e. the entity that issued the token.

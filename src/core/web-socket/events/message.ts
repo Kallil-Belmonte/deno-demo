@@ -4,7 +4,7 @@ import {
   getChatMessages,
   sendChatMessage,
   setChatMessageStatus,
-} from '../../../modules/chat/controllers/mod.ts';
+} from '@/modules/chat/controllers/mod.ts';
 import type { WebSocketFrontendData, WebSocketParams } from '../types.ts';
 
 const { parse } = JSON;

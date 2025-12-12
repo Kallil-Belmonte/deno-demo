@@ -1,6 +1,6 @@
-import type { RequestError } from '../../shared/files/types.ts';
-import { getOrigin } from '../../shared/helpers/mod.ts';
-import { minimunDelayBetweenRequests } from '../../shared/helpers/validation/isFlood.ts';
+import type { RequestError } from '@/shared/files/types.ts';
+import { getOrigin } from '@/shared/helpers/mod.ts';
+import { minimunDelayBetweenRequests } from '@/shared/helpers/validation/isFlood.ts';
 
 /**
  * @see HttpResponseStatusCodes {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status}

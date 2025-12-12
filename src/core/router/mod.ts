@@ -1,8 +1,8 @@
-import account from '../../modules/account/router/mod.ts';
-import authentication from '../../modules/authentication/router/mod.ts';
-import user from '../../modules/user/router/mod.ts';
-import type { ObjectType } from '../../shared/files/types.ts';
-import { isFlood, validateAuthTokenFromHeaders, validateCORS } from '../../shared/helpers/mod.ts';
+import account from '@/modules/account/router/mod.ts';
+import authentication from '@/modules/authentication/router/mod.ts';
+import user from '@/modules/user/router/mod.ts';
+import type { ObjectType } from '@/shared/files/types.ts';
+import { isFlood, validateAuthTokenFromHeaders, validateCORS } from '@/shared/helpers/mod.ts';
 import { success } from './responses.ts';
 
 const router = async (request: Request) => {

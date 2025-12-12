@@ -1,8 +1,8 @@
 import { Collection } from 'mongo';
 
+import type { FullUser } from '@/modules/user/controllers/files/types.ts';
+import type { CollectionDataItem } from '@/shared/files/types.ts';
 import { mongoDbClient } from '../../../main.ts';
-import type { FullUser } from '../../modules/user/controllers/files/types.ts';
-import type { CollectionDataItem } from '../../shared/files/types.ts';
 
 export type CollectionName = 'genders' | 'sexual-orientations' | 'users';
 

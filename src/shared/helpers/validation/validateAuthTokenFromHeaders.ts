@@ -1,4 +1,4 @@
-import { forbidden, unauthorized } from '../../../core/router/responses.ts';
+import { forbidden, unauthorized } from '@/core/router/responses.ts';
 import { accountUrl } from '../../../modules/account/router/endpoints.ts';
 import {
   forgotPasswordUrl,

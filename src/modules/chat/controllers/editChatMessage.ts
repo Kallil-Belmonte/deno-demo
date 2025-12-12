@@ -1,5 +1,5 @@
-import { send } from '../../../core/web-socket/events/mod.ts';
-import type { WebSocketParams } from '../../../core/web-socket/types.ts';
+import { send } from '@/core/web-socket/events/mod.ts';
+import type { WebSocketParams } from '@/core/web-socket/types.ts';
 import type { ChatMessageToEdit } from './files/types.ts';
 
 const editChatMessage = async (

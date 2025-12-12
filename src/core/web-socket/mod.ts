@@ -1,4 +1,4 @@
-import { isValidAuthToken, validateCORS } from '../../shared/helpers/mod.ts';
+import { isValidAuthToken, validateCORS } from '@/shared/helpers/mod.ts';
 import { close, message, open } from './events/mod.ts';
 
 export const connections = new Map<string, WebSocket>();

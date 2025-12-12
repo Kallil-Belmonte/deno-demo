@@ -1,4 +1,4 @@
-import { tooManyRequests } from '../../../core/router/responses.ts';
+import { tooManyRequests } from '@/core/router/responses.ts';
 import getIp from '../data/getIp.ts';
 
 export const minimunDelayBetweenRequests = 500; // in milliseconds

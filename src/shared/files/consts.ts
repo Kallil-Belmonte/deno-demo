@@ -3,7 +3,7 @@ import type {
   Language,
   SexualOrientation,
   ZodiacSign,
-} from '../../modules/user/controllers/files/types.ts';
+} from '@/modules/user/controllers/files/types.ts';
 import type { Option } from './types.ts';
 
 export const PROJECT_TITLE = 'Demo';

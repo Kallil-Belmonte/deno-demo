@@ -1,12 +1,12 @@
-import { MongoClient } from 'mongo';
+import { MongoClient } from 'mongodb';
 
 import router from '@/core/router/mod.ts';
 import webSocket from '@/core/web-socket/mod.ts';
 
-export const mongoDbClient = new MongoClient();
-await mongoDbClient.connect(
+export const mongoDbClient = new MongoClient(
   Deno.env.has('DEV') ? 'mongodb://127.0.0.1:27017' : Deno.env.get('DATABASE_CONNECTION')!,
 );
+await mongoDbClient.connect();
 
 Deno.serve({
   port: 8000,

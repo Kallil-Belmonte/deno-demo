@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongo';
+import { ObjectId } from 'mongodb';
 
 import { UserIdParam } from '@/shared/files/types.ts';
 

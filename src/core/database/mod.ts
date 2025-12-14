@@ -1,4 +1,4 @@
-import { Collection } from 'mongo';
+import { Collection } from 'mongodb';
 
 import type { FullUser } from '@/modules/user/controllers/files/types.ts';
 import type { CollectionDataItem } from '@/shared/files/types.ts';
@@ -14,7 +14,7 @@ type CollectionReturn<T> = T extends 'genders' ? Collection<CollectionDataItem>
 export const getCollection = <Type extends CollectionName>(
   name: Type,
 ): CollectionReturn<Type> => {
-  const database = mongoDbClient.database('name');
+  const database = mongoDbClient.db('name');
   const collection = database.collection(name) as CollectionReturn<Type>;
   return collection;
 };

@@ -1,7 +1,7 @@
-import { ObjectId } from 'mongo';
+import { ObjectId } from 'mongodb';
 
+import { LoggedUser } from '@/modules/authentication/controllers/files/types.ts';
 import type { IdParam, Option } from '@/shared/files/types.ts';
-import type { LoggedUser } from '@/controllers/authentication/files/types.ts';
 
 export type Language = 'pt-br' | 'pt-pt' | 'en-us';
 

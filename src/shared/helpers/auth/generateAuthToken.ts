@@ -1,5 +1,5 @@
 import { create, type Header, type Payload } from '@zaubrik/djwt';
-import type { ObjectId } from 'mongo';
+import type { ObjectId } from 'mongodb';
 
 import { AUTH_TOKEN_ISSUER } from '@/shared/files/consts.ts';
 import getAuthTokenKey from './getAuthTokenKey.ts';

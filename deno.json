@@ -9,7 +9,7 @@
       "description": "Start the server in development mode"
     },
     "test": {
-      "command": "deno test --env-file --allow-env --allow-net --watch",
+      "command": "DEV='true' deno test --env-file --allow-env --allow-net --allow-read --allow-write --watch",
       "description": "Run all tests"
     },
     "update": {

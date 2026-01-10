@@ -5,7 +5,7 @@ import getOrigin from '../data/getOrigin.ts';
 /**
  * @function validateCORS
  * @description Checks if the origin is valid.
- * @param { Request } request - Request object.
+ * @param request - Request object.
  */
 
 const validateCORS = (request: Request) =>

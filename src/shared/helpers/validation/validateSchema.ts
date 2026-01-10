@@ -5,8 +5,8 @@ import type { ObjectType } from '@/shared/files/types.ts';
 /**
  * @function validateSchema
  * @description Validates an object base on a Valibot schema.
- * @param { ObjectType | null } object - Object to validate.
- * @param { ObjectSchema<ObjectEntries, ErrorMessage<ObjectIssue>> } schema - Valibot schema.
+ * @param object - Object to validate.
+ * @param schema - Valibot schema.
  */
 
 const validateSchema = (object: ObjectType | null, schema: ObjectSchema<any, any>) => {

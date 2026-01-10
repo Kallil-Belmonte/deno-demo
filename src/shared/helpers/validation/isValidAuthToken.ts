@@ -8,7 +8,7 @@ import isValidObjectId from './isValidObjectId.ts';
 /**
  * @function isValidAuthToken
  * @description Checks if the auth token is valid.
- * @param { string } auth - Authorization.
+ * @param auth - Authorization.
  */
 
 const isValidAuthToken = async (auth: string) => {

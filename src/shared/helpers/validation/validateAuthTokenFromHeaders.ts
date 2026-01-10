@@ -15,7 +15,7 @@ const urlsWithoutAuthToken: ObjectType = {
 /**
  * @function validateAuthTokenFromHeaders
  * @description Checks if the auth token from the headers is valid.
- * @param { Request } request - Request object.
+ * @param request - Request object.
  */
 
 const validateAuthTokenFromHeaders = async (request: Request) => {

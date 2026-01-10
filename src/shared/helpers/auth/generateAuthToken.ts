@@ -15,9 +15,9 @@ import getAuthTokenKey from './getAuthTokenKey.ts';
 /**
  * @function generateAuthToken
  * @description Generates the auth token.
- * @param { ApiKey } apiKey - Token subject.
- * @param { ObjectId } sub - Token subject.
- * @param { number } [tokenDuration=7] - Token duration in days.
+ * @param apiKey - Token subject.
+ * @param sub - Token subject.
+ * @param tokenDuration - Token duration in days.
  */
 
 const generateAuthToken = async (

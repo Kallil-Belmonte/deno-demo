@@ -19,7 +19,7 @@ const AUTH_TOKEN =
 /**
  * @function request
  * @description Makes a request.
- * @param { Config } config - Request information.
+ * @param config - Request information.
  */
 
 const request = async <Type>(config: Config): Promise<Type> => {

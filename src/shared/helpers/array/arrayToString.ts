@@ -1,7 +1,7 @@
 /**
  * @function arrayToString
  * @description Displays an array as a string.
- * @param { string[] } array - Array to convert.
+ * @param array - Array to convert.
  */
 
 const arrayToString = (array: string[]) => {

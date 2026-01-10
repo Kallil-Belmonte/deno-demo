@@ -1,7 +1,7 @@
 /**
  * @function isValidObjectId
  * @description Validates a date.
- * @param { string } id - Id to validate.
+ * @param id - Id to validate.
  */
 
 const isValidObjectId = (id: string) => {

@@ -6,7 +6,7 @@ const { parse } = JSON;
 /**
  * @function sanitize
  * @description Sanitizes the body.
- * @param { string } bodyText - Body text.
+ * @param bodyText - Body text.
  */
 
 const sanitize = (bodyText: string) => {

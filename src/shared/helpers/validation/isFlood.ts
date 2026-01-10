@@ -8,7 +8,7 @@ const lastSubmission = new Map<string, number>();
 /**
  * @function isFlood
  * @description Validates the minimun delay between requests.
- * @param { Request } request - Request object.
+ * @param request - Request object.
  */
 
 const isFlood = (request: Request) => {

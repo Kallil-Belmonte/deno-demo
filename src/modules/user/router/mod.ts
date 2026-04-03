@@ -1,9 +1,13 @@
-import GET from './GET.ts';
-import PUT from './PUT.ts';
+import { editUser, getUsers } from '../controllers/mod.ts';
+import { usersUrl, userUrl } from './endpoints.ts';
 
 const user = {
-  GET,
-  PUT,
+  [usersUrl]: {
+    GET: getUsers,
+  },
+  [userUrl]: {
+    PUT: editUser,
+  },
 };
 
 export default user;

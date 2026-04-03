@@ -1,6 +1,5 @@
 import type { RequestError } from '@/shared/files/types.ts';
 import { getOrigin } from '@/shared/helpers/mod.ts';
-import { minimunDelayBetweenRequests } from '@/shared/helpers/validation/isFlood.ts';
 
 /**
  * @see HttpResponseStatusCodes {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status}
@@ -20,6 +19,12 @@ export const success = <RequestResponse>(request: Request, response: RequestResp
     headers: getHeaders(request),
   });
 
+export const noContent = (request: Request) =>
+  new Response(null, {
+    status: 204,
+    headers: getHeaders(request),
+  });
+
 export const badRequest = (request: Request, response: RequestError) =>
   new Response(stringify(response), {
     status: 400,
@@ -36,13 +41,4 @@ export const forbidden = (request: Request, response: RequestError) =>
   new Response(stringify(response), {
     status: 403,
     headers: getHeaders(request),
-  });
-
-export const tooManyRequests = (request: Request, response: RequestError) =>
-  new Response(stringify(response), {
-    status: 429,
-    headers: {
-      ...getHeaders(request),
-      'Retry-After': `${minimunDelayBetweenRequests / 1000}`,
-    },
   });

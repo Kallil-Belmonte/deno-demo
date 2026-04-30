@@ -2,9 +2,9 @@
 
 ## 🗐 Docs
 
-[Deno](https://deno.land)
-
 [TypeScript](https://www.typescriptlang.org)
+
+[Deno](https://deno.land)
 
 ## 👨‍💻 Commands
 
